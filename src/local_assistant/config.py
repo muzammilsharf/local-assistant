@@ -17,3 +17,4 @@ FOLDERS_FILE = DATA_DIR / "folders.json"
 
 ASSISTANT_NAME = "Sam"
 FOLDERS_FILE = DATA_DIR / "folders.json"
+TASK_CLOSE_SECONDS = 3
