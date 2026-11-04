@@ -2,13 +2,16 @@ from datetime import datetime
 
 import ollama
 
-from .config import KEEP_ALIVE, MODEL, NUM_CTX
+from .config import ASSISTANT_NAME, KEEP_ALIVE, MODEL, NUM_CTX
 from .memory import load_facts
 
 
 def build_system_prompt():
-    now = datetime.now().strftime("%A, %Y-%m-%d %H:%M")
-    prompt = f"You are a helpful local assistant. Current time: {now}."
+    today = datetime.now().strftime("%A, %Y-%m-%d")
+    prompt = (
+        f"You are {ASSISTANT_NAME}, a helpful local desktop assistant. "
+        f"Today is {today}."
+    )
     facts = load_facts()
     if facts:
         prompt += f"\nKnown facts about the user:\n{facts}"

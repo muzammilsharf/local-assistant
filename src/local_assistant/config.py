@@ -11,3 +11,9 @@ HISTORY_LIMIT = 6
 
 HISTORY_FILE = DATA_DIR / "history.json"
 FACTS_FILE = DATA_DIR / "facts.txt"
+
+ASSISTANT_NAME = "Sam"
+FOLDERS_FILE = DATA_DIR / "folders.json"
+
+ASSISTANT_NAME = "Sam"
+FOLDERS_FILE = DATA_DIR / "folders.json"
