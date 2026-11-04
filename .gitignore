@@ -1,0 +1,12 @@
+# gitignore my local files
+vendor/
+data/
+
+# local environment
+.venv/
+.env/
+
+credentials.json
+token.json
+*.wav
+*.bin
