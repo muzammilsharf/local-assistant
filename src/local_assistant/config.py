@@ -18,3 +18,6 @@ FOLDERS_FILE = DATA_DIR / "folders.json"
 ASSISTANT_NAME = "Sam"
 FOLDERS_FILE = DATA_DIR / "folders.json"
 TASK_CLOSE_SECONDS = 3
+TASK_MODEL = "qwen2.5:1.5b"
+OUTPUT_DIR = Path.home() / "Documents" / "Sam"
+MAX_TASK_TOKENS = 600
