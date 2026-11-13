@@ -10,3 +10,5 @@ credentials.json
 token.json
 *.wav
 *.bin
+
+src/local_assistant/__pycache__

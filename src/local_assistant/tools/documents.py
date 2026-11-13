@@ -7,6 +7,7 @@ from odf.style import ParagraphProperties, Style, TextProperties
 from odf.text import H, P
 
 from ..config import OUTPUT_DIR
+from ..llm import write_document_text
 
 
 def _safe_name(title):
@@ -51,21 +52,22 @@ def _build(title, content, path):
                 H(outlinelevel=1, stylename=heading_style, text=line.lstrip("# ").strip())
             )
         elif line.startswith(("- ", "* ")):
-            doc.text.addElement(P(stylename=body_style, text="\u2022 " + line[2:]))
+            bullet = line[2:].lstrip("# ").strip()
+            doc.text.addElement(P(stylename=body_style, text="\u2022 " + bullet))
         else:
             doc.text.addElement(P(stylename=body_style, text=line))
 
     doc.save(str(path))
 
 
-def create_document(title: str, content: str) -> str:
+def create_document(title: str, instructions: str) -> str:
     """Create a LibreOffice .odt document in the user's Documents/Sam folder.
 
     Args:
         title: Short document title. It is also used as the file name.
-        content: The full document text. Start a line with '# ' for a heading
-            and with '- ' for a bullet point. Other lines are paragraphs.
+        instructions: One sentence describing what the document should contain.
     """
+    content = write_document_text(title, instructions)
     path = _unique_path(_safe_name(title))
     _build(title, content, path)
     shown = str(path).replace(str(Path.home()), "~")
