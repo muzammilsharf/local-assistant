@@ -4,11 +4,12 @@ data/
 
 # local environment
 .venv/
-.env/
+.env
 
 credentials.json
 token.json
 *.wav
 *.bin
 
-src/local_assistant/__pycache__
+__pycache__/
+*.pyc
